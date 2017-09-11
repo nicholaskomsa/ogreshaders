@@ -1,0 +1,165 @@
+//---------------------------------------------------------------------------
+//These materials/shaders are part of the NEW InstanceManager implementation
+//Written by Matias N. Goldberg ("dark_sylinc")
+//---------------------------------------------------------------------------
+material Examples/Instancing/ShaderBased/shadow_caster
+{
+	technique
+	{
+		pass
+		{
+			vertex_program_ref Ogre/Instancing/shadow_caster_vs
+			{
+			}
+			fragment_program_ref Ogre/Instancing/shadow_caster_ps
+			{
+			}
+		}
+	}
+}
+
+material Examples/Instancing/ShaderBased/shadow_caster_dq
+{
+	technique
+	{
+		pass
+		{
+			vertex_program_ref Ogre/Instancing/shadow_caster_dq_vs
+			{
+			}
+			fragment_program_ref Ogre/Instancing/shadow_caster_ps
+			{
+			}
+		}
+	}
+}
+
+material Examples/Instancing/ShaderBased/shadow_caster_dq_two_weights
+{
+	technique
+	{
+		pass
+		{
+			vertex_program_ref Ogre/Instancing/shadow_caster_dq_two_weights_vs
+			{
+			}
+			fragment_program_ref Ogre/Instancing/shadow_caster_ps
+			{
+			}
+		}
+	}
+}
+
+abstract material Examples/Instancing/ShaderBased
+{
+	technique 
+	{
+		shadow_caster_material Examples/Instancing/ShaderBased/shadow_caster
+
+		pass
+		{
+			specular	1 1 1 1 12.5
+			vertex_program_ref Ogre/Instancing/ShaderBased_vs
+			{
+			}
+
+			fragment_program_ref Ogre/Instancing_ps
+			{
+			}
+
+			texture_unit Diffuse
+			{
+				texture_alias		DiffuseMap
+			}
+
+			texture_unit shadow0
+			{
+				content_type shadow
+				tex_address_mode border
+				tex_border_colour 1 1 1 1
+			}
+		}
+	}
+}
+
+material Examples/Instancing/ShaderBased/Robot : Examples/Instancing/ShaderBased
+{
+	set_texture_alias	DiffuseMap	r2skin.jpg
+}
+
+
+abstract material Examples/Instancing/ShaderBased_dq
+{
+	technique
+	{
+		shadow_caster_material Examples/Instancing/ShaderBased/shadow_caster_dq
+
+		pass
+		{
+			specular	1 1 1 1 12.5
+			vertex_program_ref Ogre/Instancing/ShaderBased_dq_vs
+			{
+			}
+
+			fragment_program_ref Ogre/Instancing_ps
+			{
+			}
+
+			texture_unit Diffuse
+			{
+				texture_alias		DiffuseMap
+			}
+
+			texture_unit shadow0
+			{
+				content_type shadow
+				tex_address_mode border
+				tex_border_colour 1 1 1 1
+			}
+		}
+	}
+}
+
+material Examples/Instancing/ShaderBased/Robot_dq : Examples/Instancing/ShaderBased_dq
+{
+	set_texture_alias	DiffuseMap	r2skin.jpg
+}
+
+abstract material Examples/Instancing/ShaderBased_dq_two_weights
+{
+	technique
+	{
+		shadow_caster_material Examples/Instancing/ShaderBased/shadow_caster_dq_two_weights
+
+		pass
+		{
+			diffuse		0.3 0.3 0.3
+			specular	0.1 0.1 0.1 0.1 12.5
+			vertex_program_ref Ogre/Instancing/ShaderBased_dq_two_weights_vs
+			{
+			}
+
+			fragment_program_ref Ogre/Instancing_ps
+			{
+			}
+
+			texture_unit Diffuse
+			{
+				texture_alias		DiffuseMap
+				tex_address_mode	clamp
+			}
+
+			texture_unit shadow0
+			{
+				content_type shadow
+				tex_address_mode border
+				tex_border_colour 1 1 1 1
+			}
+		}
+	}
+}
+
+material Examples/Instancing/ShaderBased/spine_dq_two_weights : Examples/Instancing/ShaderBased_dq_two_weights
+{
+	set_texture_alias	DiffuseMap	circuit.dds
+}

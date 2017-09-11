@@ -1,0 +1,64 @@
+//---------------------------------------------------------------------------
+//These materials/shaders are part of the NEW InstanceManager implementation
+//Written by Matias N. Goldberg ("dark_sylinc")
+//---------------------------------------------------------------------------
+
+material Examples/Instancing/HWBasic/shadow_caster
+{
+	technique
+	{
+		pass
+		{
+			vertex_program_ref Ogre/Instancing/HWBasic/shadow_caster_vs
+			{
+			}
+			fragment_program_ref Ogre/Instancing/shadow_caster_ps
+			{
+			}
+		}
+	}
+}
+
+abstract material Examples/Instancing/HWBasic
+{
+	technique
+	{
+		shadow_caster_material Examples/Instancing/HWBasic/shadow_caster
+
+		pass
+		{
+			diffuse		0.3 0.3 0.3
+			specular	0.1 0.1 0.1 0.1 12.5
+			vertex_program_ref Ogre/Instancing/HWBasic_vs
+			{
+			}
+
+			fragment_program_ref Ogre/Instancing_ps
+			{
+			}
+
+			texture_unit Diffuse
+			{
+				texture_alias		DiffuseMap
+				tex_address_mode	clamp
+			}
+
+			texture_unit shadow0
+			{
+				content_type shadow
+				tex_address_mode border
+				tex_border_colour 1 1 1 1
+			}
+		}
+	}
+}
+
+material Examples/Instancing/HWBasic/Robot : Examples/Instancing/HWBasic
+{
+	set_texture_alias	DiffuseMap	r2skin.jpg
+}
+
+material Examples/Instancing/HWBasic/spine : Examples/Instancing/HWBasic
+{
+	set_texture_alias	DiffuseMap	circuit.dds
+}
