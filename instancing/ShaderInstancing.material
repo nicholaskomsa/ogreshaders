@@ -52,7 +52,7 @@ material Examples/Instancing/ShaderBased/shadow_caster_dq_two_weights
 
 abstract material Examples/Instancing/ShaderBased
 {
-	technique 
+	technique
 	{
 		shadow_caster_material Examples/Instancing/ShaderBased/shadow_caster
 
@@ -86,7 +86,6 @@ material Examples/Instancing/ShaderBased/Robot : Examples/Instancing/ShaderBased
 {
 	set_texture_alias	DiffuseMap	r2skin.jpg
 }
-
 
 abstract material Examples/Instancing/ShaderBased_dq
 {

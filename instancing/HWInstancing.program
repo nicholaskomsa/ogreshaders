@@ -111,4 +111,3 @@ vertex_program Ogre/Instancing/HWBasic/shadow_caster_vs unified
 		param_named_auto	depthRange					scene_depth_range
 	}
 }
-

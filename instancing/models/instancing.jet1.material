@@ -16,35 +16,36 @@ abstract technique Jet1Technique1
 	}
 }
 
-material Examples/Instancing/ShaderBased/Jet1.1 : Examples/Instancing/ShaderBased
+material Examples/Instancing/HW/VTF/LUT/Jet1.1 : Examples/Instancing/HW_VTF_LUT
 {
 	set_texture_alias DiffuseMap jet1tex.png
 
 	technique : Jet1Technique1 {}
 }
 
-material Examples/Instancing/VTF/HW/LUT/Jet1.1 : Examples/Instancing/HW_VTF_LUT
+material Examples/Instancing/HW/VTF/Jet1.1 : Examples/Instancing/HW_VTF
 {
 	set_texture_alias DiffuseMap jet1tex.png
 
 	technique : Jet1Technique1 {}
 }
 
-material Examples/Instancing/VTF/HW/Jet1.1 : Examples/Instancing/HW_VTF
+material Examples/Instancing/HWBasic/Jet1.1 : Examples/Instancing/HWBasic
 {
 	set_texture_alias DiffuseMap jet1tex.png
 
 	technique : Jet1Technique1 {}
 }
 
-material Examples/Instancing/HW/Jet1.1 : Examples/Instancing/HWBasic
-{
-	set_texture_alias DiffuseMap jet1tex.png
-
-	technique : Jet1Technique1 {}
-}
 
 material Examples/Instancing/VTF/Jet1.1 : Examples/Instancing/VTF
+{
+	set_texture_alias DiffuseMap jet1tex.png
+
+	technique : Jet1Technique1 {}
+}
+
+material Examples/Instancing/ShaderBased/Jet1.1 : Examples/Instancing/ShaderBased
 {
 	set_texture_alias DiffuseMap jet1tex.png
 

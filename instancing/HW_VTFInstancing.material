@@ -3,6 +3,7 @@
 //Written by Matias N. Goldberg ("dark_sylinc")
 //---------------------------------------------------------------------------
 
+
 material Examples/Instancing/VTF/HW/shadow_caster
 {
 	technique
